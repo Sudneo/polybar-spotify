@@ -20,6 +20,7 @@ The main limitation is that in order to get the name of the song being played an
 icon correct, the script needs to be executed often.
 The second limitation is that Spotify application doesn't expose the current position in the song,
 so we cannot show a fancy progress bar of the song.
+Finally, Spotify doesn't seem to expose the correct Album name for songs.
 
 ## Configuration
 
@@ -81,3 +82,6 @@ When a song is playing, the result is like this:
 When a song is paused, the result is like this:
 
 ![Paused](paused.png)
+
+Note that the script trims or pads the output to a fixed amount of characters, that together with a
+monospace font produce the result of a fixed width polybar block.
