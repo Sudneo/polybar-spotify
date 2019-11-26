@@ -76,8 +76,8 @@ Few things to notice:
 
 When a song is playing, the result is like this:
 
-[[playing.png]]
+![Playing](playing.png)
 
 When a song is paused, the result is like this:
 
-[[paused.png]]
+![Paused](paused.png)
