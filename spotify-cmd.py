@@ -55,7 +55,7 @@ def main():
             metadata = spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'Metadata')
             song_name = metadata['xesam:title']
             artist = metadata['xesam:artist'][0]
-            album = metadata['xesam:albumArtist'][0]
+            album = metadata['xesam:album']
             dash = '\u2014'
             status_icon = '\uf1bc'
             if args.trim_or_pad:

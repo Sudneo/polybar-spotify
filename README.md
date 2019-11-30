@@ -18,9 +18,9 @@ songs and to go to previous/next song.
 
 The main limitation is that in order to get the name of the song being played and the play/pause
 icon correct, the script needs to be executed often.
+
 The second limitation is that Spotify application doesn't expose the current position in the song,
 so we cannot show a fancy progress bar of the song.
-Finally, Spotify doesn't seem to expose the correct Album name for songs.
 
 ## Configuration
 
@@ -30,15 +30,15 @@ different polybar modules.
 The result was something like the following:
 
 ```
-[bar/top]
-
 [...]
+
 modules-left = spotify-song spotify-backward spotify-status spotify-forward
 
+[...]
 [module/spotify-song]
 type = custom/script
 exec = ~/polybar-scripts/spotify-cmd.py --playing --trim_or_pad 50
-interval = 0.1
+interval = 0.5
 format = <label>
 format-foreground = #fff
 format-background = #773f3f3f
@@ -48,7 +48,7 @@ label = %{T4}%output%%{T-}
 
 [module/spotify-backward]
 type = custom/script
-exec = python3 -c 'print("\uf048")'
+exec = ~/polybar-scripts/spotify-cmd.py --previous_icon
 click-left = ~/polybar-scripts/spotify-cmd.py --previous
 format-padding = -1
 
@@ -56,14 +56,16 @@ format-padding = -1
 type = custom/script
 exec = ~/polybar-scripts/spotify-cmd.py --playpause_icon
 click-left = ~/polybar-scripts/spotify-cmd.py --playpause
-interval = 0.1
+interval = 0.5
 format-padding = -1
 
 [module/spotify-forward]
 type = custom/script
-exec = python3 -c 'print("\uf051")'
+exec = ~/polybar-scripts/spotify-cmd.py --next_icon
 click-left = ~/polybar-scripts/spotify-cmd.py --next
 format-padding = -1
+[bar/top]
+
 ```
 
 Few things to notice:
@@ -85,3 +87,4 @@ When a song is paused, the result is like this:
 
 Note that the script trims or pads the output to a fixed amount of characters, that together with a
 monospace font produce the result of a fixed width polybar block.
+
