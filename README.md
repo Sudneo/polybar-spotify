@@ -72,8 +72,8 @@ Few things to notice:
 
 * The custom font usage in the `spotify-song` block is not casual. Since the blocks are separated,
   the best result is obtained with monospace fonts, so that the width of the block is fixed.
-* `print("\uf048")` and `print("\uf051")` commands are just printing icons for previous/next song.
-  This can be done in the script itself with a little addition.
+* When Spotify is not Running, the script doesn't print anything at all, so the whole block will
+  basically disappear.
 
 ## Outcome
 
